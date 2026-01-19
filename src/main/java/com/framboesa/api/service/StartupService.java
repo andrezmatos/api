@@ -1,13 +1,14 @@
-package com.bramboesa.api.service;
+package com.framboesa.api.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import com.bramboesa.api.model.Nomination;
-import com.bramboesa.api.util.FileUtil;
+import com.framboesa.api.model.Nomination;
+import com.framboesa.api.util.FileUtil;
 import com.opencsv.exceptions.CsvValidationException;
 
 import jakarta.annotation.PostConstruct;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Profile("!test")
 public class StartupService {
 
     private final NominationService nominationService;

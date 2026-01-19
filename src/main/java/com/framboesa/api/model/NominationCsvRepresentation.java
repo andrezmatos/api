@@ -1,4 +1,4 @@
-package com.bramboesa.api.model;
+package com.framboesa.api.model;
 
 import com.opencsv.bean.CsvBindByName;
 

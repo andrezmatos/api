@@ -1,15 +1,15 @@
-package com.bramboesa.api.service;
+package com.framboesa.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.bramboesa.api.dto.NominationsDTO;
-import com.bramboesa.api.dto.WinnerYearDiffDTO;
-import com.bramboesa.api.model.Nomination;
-import com.bramboesa.api.model.Winner;
-import com.bramboesa.api.repository.WinnerRepository;
-import com.bramboesa.api.util.WinnerConverter;
+import com.framboesa.api.dto.NominationsDTO;
+import com.framboesa.api.dto.WinnerYearDiffDTO;
+import com.framboesa.api.model.Nomination;
+import com.framboesa.api.model.Winner;
+import com.framboesa.api.repository.WinnerRepository;
+import com.framboesa.api.util.WinnerConverter;
 
 import lombok.RequiredArgsConstructor;
 

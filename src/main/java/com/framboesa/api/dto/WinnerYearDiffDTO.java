@@ -1,4 +1,4 @@
-package com.bramboesa.api.dto;
+package com.framboesa.api.dto;
 
 public interface WinnerYearDiffDTO {
 

@@ -1,14 +1,14 @@
-package com.bramboesa.api.service;
+package com.framboesa.api.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bramboesa.api.dto.NominationDTO;
-import com.bramboesa.api.dto.NominationsDTO;
-import com.bramboesa.api.model.Nomination;
-import com.bramboesa.api.repository.NominationRepository;
-import com.bramboesa.api.util.NominationConverter;
+import com.framboesa.api.dto.NominationDTO;
+import com.framboesa.api.dto.NominationsDTO;
+import com.framboesa.api.model.Nomination;
+import com.framboesa.api.repository.NominationRepository;
+import com.framboesa.api.util.NominationConverter;
 
 import lombok.RequiredArgsConstructor;
 

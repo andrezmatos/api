@@ -1,15 +1,12 @@
-package com.bramboesa.api.controller;
+package com.framboesa.api.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bramboesa.api.dto.NominationDTO;
-import com.bramboesa.api.dto.NominationsDTO;
-import com.bramboesa.api.service.NominationService;
-import com.bramboesa.api.service.WinnerService;
+import com.framboesa.api.dto.NominationsDTO;
+import com.framboesa.api.service.WinnerService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,14 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NominationController {
 
-    final private NominationService service;
-
     final private WinnerService winnerService;
-    
-    @PostMapping
-    public ResponseEntity<NominationDTO> insert(NominationDTO nominationDTO) {
-        return ResponseEntity.ok(service.saveNomination(nominationDTO));
-    }
 
     @GetMapping
     public ResponseEntity<NominationsDTO> getNominations() {

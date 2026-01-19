@@ -1,11 +1,11 @@
-package com.bramboesa.api.util;
+package com.framboesa.api.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bramboesa.api.dto.WinnerDTO;
-import com.bramboesa.api.model.Nomination;
-import com.bramboesa.api.model.Winner;
+import com.framboesa.api.dto.WinnerDTO;
+import com.framboesa.api.model.Nomination;
+import com.framboesa.api.model.Winner;
 
 public class WinnerConverter {
 

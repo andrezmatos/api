@@ -1,4 +1,4 @@
-package com.bramboesa.api.util;
+package com.framboesa.api.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.bramboesa.api.model.Nomination;
-import com.bramboesa.api.model.NominationCsvRepresentation;
+import com.framboesa.api.model.Nomination;
+import com.framboesa.api.model.NominationCsvRepresentation;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
