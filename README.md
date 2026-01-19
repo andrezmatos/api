@@ -50,8 +50,8 @@ src
 ### 1️⃣ Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/andrezmatos/api.git
+cd api
 ```
 
 ---
@@ -134,7 +134,7 @@ Os testes usam o **profile `test`**, que:
 
 ## 👤 Autor
 
-Desenvolvido por **[Seu Nome]**
+Desenvolvido por **[André Luiz Zahn de Matos]**
 
 ---
 
