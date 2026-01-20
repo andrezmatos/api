@@ -14,7 +14,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class NominationsDTO {
+
     private List<WinnerYearDiffDTO> max;
 
     private List<WinnerYearDiffDTO> min;
 }
+

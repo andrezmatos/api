@@ -60,15 +60,6 @@ class NominationServiceTest {
     }
 
     @Test
-    void shouldReturnEmptyNominationsDTO() {
-        var result = service.getNominations();
-
-        assertThat(result).isNotNull();
-        assertThat(result.getMax()).isNull();
-        assertThat(result.getMin()).isNull();
-    }
-
-    @Test
     void shouldSaveAllNominations() {
 
         var records = List.of(

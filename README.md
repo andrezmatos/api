@@ -1,23 +1,19 @@
-# 📽️ Movie Awards API – Spring Boot
+# 🎬 Movie Awards API
 
-API REST desenvolvida em **Java 21** com **Spring Boot**, responsável por processar dados de indicações e vencedores de prêmios de cinema a partir de um arquivo CSV, calculando **intervalos mínimos e máximos entre vitórias por produtor**.
-
-O projeto foi desenvolvido como **desafio técnico**, seguindo boas práticas de arquitetura, testes automatizados e código limpo.
+API REST desenvolvida em **Java 21 + Spring Boot 3** como parte de um **desafio técnico**, responsável por processar indicações e vencedores de prêmios de cinema e calcular os **intervalos mínimos e máximos entre vitórias consecutivas por produtor**.
 
 ---
 
-## 🧩 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
-- Java 21
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- H2 Database (testes)
-- JPA Native Queries
-- Lombok
-- OpenCSV
-- JUnit 5
-- Mockito
+- Java 21  
+- Spring Boot 3.x  
+- Spring Data JPA  
+- Hibernate  
+- H2 Database (em memória)  
+- Maven (Maven Wrapper)  
+- Swagger / OpenAPI (Springdoc)  
+- JUnit 5 + Mockito  
 
 ---
 
@@ -45,9 +41,7 @@ src
 
 ---
 
-## 🚀 Como executar o projeto
-
-### 1️⃣ Clonar o repositório
+## 📦 Como baixar o projeto
 
 ```bash
 git clone https://github.com/andrezmatos/api.git
@@ -56,7 +50,7 @@ cd api
 
 ---
 
-### 2️⃣ Pré-requisitos
+### Pré-requisitos
 
 - Java 21 instalado  
 - Maven 3.9+
@@ -70,7 +64,7 @@ mvn -version
 
 ---
 
-### 3️⃣ Configuração do arquivo CSV
+### Configuração do arquivo CSV
 
 O projeto lê automaticamente um arquivo CSV no startup (fora do profile `test`).
 
@@ -84,60 +78,134 @@ private String path = "D:\\Documents\\avaliacao\\movielist.csv";
 
 ---
 
-### 4️⃣ Executar a aplicação
+---
 
+## ▶️ Como rodar o projeto
+
+### Usando Maven Wrapper (recomendado)
+
+Linux / macOS:
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
-Ou:
-
+Windows:
 ```bash
-mvn clean package
-java -jar target/*.jar
+mvnw.cmd spring-boot:run
 ```
 
 ---
 
-## 🌐 Endpoints Disponíveis
+## 🧪 Executando os testes
 
-### 🔹 Buscar intervalos de vitórias (mínimo e máximo)
+```bash
+./mvnw test
+```
+
+### Observações sobre testes
+- O profile **test** é ativado automaticamente
+- O `@PostConstruct` do `StartupService` **não é executado**
+- Banco H2 em memória é utilizado
+
+---
+
+## 📖 Documentação da API (Swagger)
+
+A API possui documentação interativa via **Swagger UI**, permitindo explorar e testar os endpoints diretamente pelo navegador.
+
+### 🔗 URLs
+
+- **Swagger UI**  
+  http://localhost:8080/swagger-ui.html
+
+- **OpenAPI JSON**  
+  http://localhost:8080/v3/api-docs
+
+### 📌 O que está documentado
+
+- Endpoints REST
+- Parâmetros e respostas
+- DTOs de entrada e saída
+- Códigos HTTP
+- Descrição funcional de cada operação
+
+---
+
+## 📡 Endpoint principal
+
+### Buscar intervalos entre vitórias
 
 ```
 GET /nomination
 ```
 
----
+### Exemplo de resposta (200 OK)
 
-## 🧪 Executando os Testes
-
-```bash
-mvn test
+```json
+{
+  "max": [
+    {
+      "producer": "Producer A",
+      "previousWin": 2001,
+      "productionYear": 2005,
+      "yearDiff": 4
+    }
+  ],
+  "min": [
+    {
+      "producer": "Producer B",
+      "previousWin": 2018,
+      "productionYear": 2019,
+      "yearDiff": 1
+    }
+  ]
+}
 ```
 
-Os testes usam o **profile `test`**, que:
-- Não executa `@PostConstruct`
-- Usa banco em memória (H2)
-- Não lê arquivo CSV real
+---
+
+## ⚙️ Carga inicial de dados
+
+Os dados são carregados automaticamente na inicialização da aplicação a partir de um arquivo CSV.
+
+Classe responsável:
+```
+StartupService
+```
+
+- Executada apenas fora do profile `test`
+- Realiza leitura do CSV
+- Persiste indicações e vencedores no banco
 
 ---
 
-## 🧱 Arquitetura e Boas Práticas
+## 🛡️ Tratamento de Erros
 
-- Separação clara entre Controller, Service e Repository
-- Uso de DTOs e Projections
-- Queries SQL otimizadas
-- Testes isolados e de integração
-- Código compatível com Java 21
+A API utiliza um `@RestControllerAdvice` para tratamento global de exceções, garantindo:
+
+- Respostas padronizadas
+- Mensagens claras de erro
+- Códigos HTTP adequados
 
 ---
 
-## 👤 Autor
+## 🧠 Observações Técnicas
 
-Desenvolvido por **[André Luiz Zahn de Matos]**
+- Uso de **queries nativas** com Window Functions (`LAG`)
+- Projections via **interface** no repository
+- DTOs específicos para documentação Swagger
+- Arquitetura em camadas (Controller → Service → Repository)
+- Compatível com **Java 21** e **Spring Boot 3**
+- Maven Wrapper para evitar dependência local do Maven
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **André Luiz Zahn de Matos**
 
 ---
 
 ## 📄 Licença
 
-Projeto desenvolvido exclusivamente para fins de avaliação técnica.
+Uso acadêmico / desafio técnico.

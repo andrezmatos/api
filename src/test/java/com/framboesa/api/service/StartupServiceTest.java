@@ -3,7 +3,6 @@ package com.framboesa.api.service;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -17,7 +16,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.framboesa.api.model.Nomination;
 import com.framboesa.api.util.FileUtil;
-import com.opencsv.exceptions.CsvValidationException;
 
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")

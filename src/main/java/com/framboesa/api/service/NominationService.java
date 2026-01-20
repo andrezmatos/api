@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.framboesa.api.dto.NominationDTO;
-import com.framboesa.api.dto.NominationsDTO;
 import com.framboesa.api.model.Nomination;
 import com.framboesa.api.repository.NominationRepository;
 import com.framboesa.api.util.NominationConverter;
@@ -23,12 +22,6 @@ public class NominationService {
         Nomination nomination = repository.save(NominationConverter.convert(nominationDTO));
         return NominationConverter.convert(nomination);
 
-    }
-
-    public NominationsDTO getNominations() {
-        NominationsDTO nominationsDTO = new NominationsDTO();
-
-        return nominationsDTO;
     }
 
     @SuppressWarnings("null")
